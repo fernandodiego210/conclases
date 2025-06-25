@@ -39,6 +39,9 @@ public class ControladorTeclado {
             case KeyEvent.VK_DOWN:
                 abajo = false;
                 break;
+            case KeyEvent.VK_SPACE:
+                disparo = false;
+                break;
         }
     }
     
