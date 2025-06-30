@@ -2,7 +2,7 @@ package juegoavionclases;
 
 import java.awt.*;
 
-public class Enemigo {
+public class diegoEnemigo {
     private int x, y;
     private final int velocidad = 2;
     private final int ancho = 30;
@@ -24,10 +24,6 @@ public class Enemigo {
     public void dibujar(Graphics g) {
         g.setColor(Color.RED);
         g.fillRect(x, y, ancho, alto);
-        
-        // Dibujar "cañón" del enemigo
-        g.setColor(Color.DARK_GRAY);
-        g.fillRect(x+12, y+25, 6, 8);
     }
     
     public boolean puedeDisparar() {

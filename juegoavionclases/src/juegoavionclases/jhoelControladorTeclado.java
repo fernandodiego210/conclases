@@ -2,7 +2,7 @@ package juegoavionclases;
 
 import java.awt.event.KeyEvent;
 
-public class ControladorTeclado {
+public class jhoelControladorTeclado {
     private boolean izquierda, derecha, arriba, abajo, disparo;
     
     public void keyPressed(KeyEvent e) {
