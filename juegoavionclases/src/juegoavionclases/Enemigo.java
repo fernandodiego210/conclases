@@ -2,7 +2,7 @@ package juegoavionclases;
 
 import java.awt.*;
 
-public class diegoEnemigo {
+public class Enemigo {
     private int x, y;
     private final int velocidad = 2;
     private final int ancho = 30;

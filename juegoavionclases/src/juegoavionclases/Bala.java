@@ -2,7 +2,7 @@ package juegoavionclases;
 
 import java.awt.*;
 
-public class angelBala {
+public class Bala {
     private int x, y;
     private int velocidad;
     private final int ancho = 4;

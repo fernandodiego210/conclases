@@ -2,7 +2,7 @@ package juegoavionclases;
 
 import java.awt.*;
 
-public class estefanoPowerUp {
+public class PowerUp {
     private int x, y;
     private String tipo;
     private final int velocidad = 3;
