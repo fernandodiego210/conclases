@@ -1,0 +1,80 @@
+package juegoavionclases;
+
+import java.awt.*;
+
+public class RenderizadorJuego {
+    private EstadoJuego estadoJuego;
+    
+    public RenderizadorJuego(EstadoJuego estadoJuego) {
+        this.estadoJuego = estadoJuego;
+    }
+    
+    public void renderizar(Graphics g) {
+        if (estadoJuego.isJuegoTerminado()) {
+            dibujarGameOver(g);
+            return;
+        }
+        
+        dibujarElementosJuego(g);
+        dibujarInterfaz(g);
+    }
+    
+    private void dibujarElementosJuego(Graphics g) {
+        // Dibujar nave
+        estadoJuego.getNave().dibujar(g);
+        
+        // Dibujar balas
+        for (Bala bala : estadoJuego.getBalas()) {
+            bala.dibujar(g);
+        }
+        
+        // Dibujar enemigos normales
+        for (Enemigo enemigo : estadoJuego.getEnemigos()) {
+            enemigo.dibujar(g);
+        }
+        
+        // Dibujar enemigos triangulares
+        for (Enemigo2 enemigo2 : estadoJuego.getEnemigos2()) {
+            enemigo2.dibujar(g);
+        }
+        
+        // Dibujar power-ups
+        for (PowerUp powerUp : estadoJuego.getPowerUps()) {
+            powerUp.dibujar(g);
+        }
+    }
+    
+    private void dibujarInterfaz(Graphics g) {
+        Nave nave = estadoJuego.getNave();
+        
+        g.setColor(Color.WHITE);
+        g.drawString("Puntos: " + estadoJuego.getPuntos(), 10, 20);
+        g.drawString("Vidas: " + nave.getVidas(), 10, 40);
+        g.drawString("Enemigos eliminados: " + estadoJuego.getEnemigosEliminados(), 10, 60);
+        
+        // Mostrar estado de power-ups
+        if (nave.tieneEscudo()) {
+            g.setColor(Color.CYAN);
+            g.drawString("ESCUDO ACTIVO", 10, 80);
+        }
+        if (nave.tieneDisparoRapido()) {
+            g.setColor(Color.ORANGE);
+            g.drawString("DISPARO RAPIDO", 10, 100);
+        }
+        
+        g.setColor(Color.WHITE);
+        g.drawString("Flechas = mover, ESPACIO = disparar", 10, 480);
+    }
+    
+    private void dibujarGameOver(Graphics g) {
+        g.setColor(Color.RED);
+        g.setFont(new Font("Arial", Font.BOLD, 32));
+        g.drawString("GAME OVER", 120, 200);
+        
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.PLAIN, 16));
+        g.drawString("Puntuación Final: " + estadoJuego.getPuntos(), 140, 250);
+        g.drawString("Enemigos eliminados: " + estadoJuego.getEnemigosEliminados(), 130, 270);
+        g.drawString("Presiona R para reiniciar", 130, 300);
+    }
+}

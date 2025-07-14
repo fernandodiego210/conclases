@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class JuegoMain {
     public static void main(String[] args) {
-        JFrame ventana = new JFrame("IRAN VS E.E.U.U.");
+        JFrame ventana = new JFrame("Nave vs Enemigos - Mejorado");
         PanelJuego juego = new PanelJuego();
         
         ventana.add(juego);
